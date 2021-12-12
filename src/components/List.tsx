@@ -58,9 +58,11 @@ const List = () => {
             <Card
               key={item.id}
               style={{
-                width: "21rem",
+                width: "21.650rem",
+                height: "22.650rem",
                 margin: "1rem",
                 textAlign: "left",
+                padding: "1rem",
               }}
             >
               <Card.Body>
@@ -90,7 +92,7 @@ const List = () => {
                   {item.due}
                 </Card.Subtitle>
                 <hr />
-                <Card.Text>도면개수 {item.count}개</Card.Text>
+                <Card.Text>도면개수 {item.count || item.docs}개</Card.Text>
                 <Card.Text>총 수량 {item.amount}개</Card.Text>
                 <Card.Text>가공방식 {item.method}</Card.Text>
                 <Card.Text>재료 {item.material}</Card.Text>
