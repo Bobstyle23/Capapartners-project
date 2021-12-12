@@ -10,7 +10,9 @@ const Header = () => {
         style={{ backgroundColor: "#1565C0" }}
       >
         <Container>
-          <Navbar.Brand href="#home">CAPA 파트너스</Navbar.Brand>
+          <Navbar.Brand href="#home">
+            <span style={{ fontWeight: "900" }}>CAPA</span> 파트너스
+          </Navbar.Brand>
           <Navbar.Toggle aria-controls="offcanvasNavbar" />
           <Navbar.Offcanvas
             id="offcanvasNavbar"
