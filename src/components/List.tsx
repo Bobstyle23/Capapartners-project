@@ -16,7 +16,11 @@ const List = () => {
           {items.map((item) => (
             <Card
               key={item.id}
-              style={{ width: "21rem", margin: "1rem", textAlign: "left" }}
+              style={{
+                width: "21rem",
+                margin: "1rem",
+                textAlign: "left",
+              }}
             >
               <Card.Body>
                 <Card.Title>{item.title}</Card.Title>
@@ -25,10 +29,10 @@ const List = () => {
                   {item.due}
                 </Card.Subtitle>
                 <hr />
-                <Card.Text>도면개수 {item.count}</Card.Text>
-                <Card.Text>총 수량 {item.amount}</Card.Text>
+                <Card.Text>도면개수 {item.count}개</Card.Text>
+                <Card.Text>총 수량 {item.amount}개</Card.Text>
                 <Card.Text>가공방식 {item.method}</Card.Text>
-                <Card.Text>재료 {item.material[0]}</Card.Text>
+                <Card.Text>재료 {item.material}</Card.Text>
                 <Button
                   style={{ backgroundColor: "#2196F3", marginRight: "0.8rem" }}
                 >
