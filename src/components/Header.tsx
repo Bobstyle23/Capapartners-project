@@ -17,12 +17,17 @@ const Header = () => {
             aria-labelledby="offcanvasNavbarLabel"
             placement="start"
           >
-            <Offcanvas.Header closeButton>
+            <Offcanvas.Header>
               <Offcanvas.Title
                 id="offcanvasNavbarLabel"
-                style={{ color: "#1565C0" }}
+                style={{
+                  color: "#1565C0",
+                  width: "100%",
+                  // borderBottom: "2px solid black",
+                }}
               >
                 CAPA 파트너스
+                <hr />
               </Offcanvas.Title>
             </Offcanvas.Header>
             <Offcanvas.Body>
