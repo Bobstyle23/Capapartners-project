@@ -23,7 +23,7 @@ const Header = () => {
                 style={{
                   color: "#1565C0",
                   width: "100%",
-                  // borderBottom: "2px solid black",
+                  fontWeight: "bold",
                 }}
               >
                 CAPA 파트너스
@@ -45,15 +45,16 @@ const Header = () => {
             <Nav className="justify-content-end flex-grow-1">
               <Nav.Link
                 style={{
-                  color: "#fffff",
-                  borderRight: "1px solid #FFFFFF",
+                  color: "#ffffff",
+                  height: "35px",
+                  borderRight: "1px solid #ffffff",
                   marginRight: "1rem",
                   paddingRight: "1rem",
                 }}
               >
                 A 가공 업체
               </Nav.Link>
-              <Nav.Link style={{ color: "#fffff" }}>로그아웃</Nav.Link>
+              <Nav.Link style={{ color: "#ffffff" }}>로그아웃</Nav.Link>
             </Nav>
           </Navbar.Collapse>
         </Container>
