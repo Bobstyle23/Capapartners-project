@@ -1,5 +1,3 @@
-import React from "react";
-
 const EmptyList = () => {
   return (
     <div>
@@ -7,10 +5,10 @@ const EmptyList = () => {
         style={{
           color: " #939FA5",
           width: "100%",
-          height: "10rem",
+          height: "8rem",
           border: "1px solid #939FA5",
           textAlign: "center",
-          padding: "4rem",
+          padding: "3rem",
           marginTop: "1rem",
         }}
       >

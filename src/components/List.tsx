@@ -8,6 +8,7 @@ import {
   DropdownButton,
   Form,
 } from "react-bootstrap";
+import "./styles/list-styles.css";
 import EmptyList from "./EmptyList";
 
 const List = () => {
@@ -27,6 +28,7 @@ const List = () => {
             style={{
               color: "#323D45",
               textAlign: "left",
+              marginLeft: "0.2rem",
             }}
           >
             들어온 요청
@@ -35,6 +37,7 @@ const List = () => {
             style={{
               color: "#323D45",
               textAlign: "left",
+              marginLeft: "0.2rem",
             }}
           >
             파트너님에게 딱 맞는 요청서를 찾아보세요.
@@ -48,6 +51,7 @@ const List = () => {
               display: "flex",
               marginTop: "1rem",
               marginBottom: "1rem",
+              marginLeft: "0.2rem",
             }}
           >
             <Form.Check id="1" label="밀링" />
@@ -56,16 +60,7 @@ const List = () => {
 
           {items.length !== 0 ? (
             items.map((item) => (
-              <Card
-                key={item.id}
-                style={{
-                  width: "21.650rem",
-                  height: "22.650rem",
-                  margin: "1rem",
-                  textAlign: "left",
-                  padding: "1rem",
-                }}
-              >
+              <Card className="card" key={item.id}>
                 <Card.Body>
                   <Card.Title>{item.title}</Card.Title>
                   {item.status === "상담중" ? (
