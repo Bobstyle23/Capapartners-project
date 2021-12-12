@@ -3,7 +3,12 @@ import { Navbar, Nav, Container, Offcanvas, Image } from "react-bootstrap";
 const Header = () => {
   return (
     <div>
-      <Navbar collapseOnSelect expand="lg" bg="primary" variant="dark">
+      <Navbar
+        collapseOnSelect
+        expand="lg"
+        variant="dark"
+        style={{ backgroundColor: "#1565C0" }}
+      >
         <Container>
           <Navbar.Brand href="#home">CAPA 파트너스</Navbar.Brand>
           <Navbar.Toggle aria-controls="offcanvasNavbar" />
