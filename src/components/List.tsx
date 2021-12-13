@@ -1,3 +1,4 @@
+import React from "react";
 import datas from "../data.json";
 import { Card, Container, Row, Button, Badge } from "react-bootstrap";
 import "./styles/list-styles.css";
@@ -6,12 +7,6 @@ import SortButtons from "./SortButtons";
 
 const List = () => {
   const items = datas.requests;
-  const method = items.map((item) => item.method);
-  console.log(items);
-
-  for (let i = 0; i < method.length; i++) {
-    console.log(method[i]);
-  }
 
   return (
     <div>
@@ -21,9 +16,7 @@ const List = () => {
           <p className="main-subheader">
             파트너님에게 딱 맞는 요청서를 찾아보세요.
           </p>
-
-          <SortButtons items={items} />
-
+          <SortButtons />
           {items.length !== 0 ? (
             items.map((item) => (
               <Card className="card" key={item.id}>

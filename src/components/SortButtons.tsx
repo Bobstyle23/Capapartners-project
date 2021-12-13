@@ -1,14 +1,84 @@
-import React, { useState } from "react";
-import { Container, DropdownButton, Form, Col, Row } from "react-bootstrap";
+import React, { useState, useEffect } from "react";
+import {
+  Container,
+  DropdownButton,
+  Form,
+  Col,
+  Row,
+  Card,
+  Badge,
+  Button,
+} from "react-bootstrap";
 import Switch from "react-switch";
+import datas from "../data.json";
+import EmptyList from "./EmptyList";
+import List from "./List";
 import "./styles/sortButtons.css";
 
-const SortButtons = ({ items }: any) => {
+const SortButtons = () => {
   const [check, setCheck] = useState(false);
 
   const handleChange = (check: boolean | ((prevState: boolean) => boolean)) => {
     setCheck(check);
   };
+
+  const items = datas.requests;
+  let st = items.filter((item) => item.status === "상담중");
+  console.log(st);
+
+  console.log(check);
+  if (check) {
+    console.log(st.map((name) => name.client));
+  }
+
+  const checkStatus = () => {
+    if (check) {
+      st.map((item) => (
+        <Card className="card" key={item.id}>
+          <Card.Body>
+            <Card.Title className="card-title">{item.title}</Card.Title>
+            <span>
+              <Badge className="badge-style" pill bg="light">
+                {item.status}
+              </Badge>
+            </span>
+
+            <h5 className="client-style">{item.client}</h5>
+
+            <Card.Subtitle className="mb-2 text-muted card-subtitle">
+              {item.due}까지 납기
+            </Card.Subtitle>
+            <hr />
+
+            <Card.Text className="cardText">
+              도면개수
+              <span className="body-span">{item.count || item.docs}개</span>
+            </Card.Text>
+            <Card.Text>
+              총 수량
+              <span className="body-span">{item.amount}개</span>
+            </Card.Text>
+            <Card.Text>
+              가공방식
+              <span className="body-span">{item.method.join(", ")}</span>
+            </Card.Text>
+            <Card.Text>
+              재료
+              <span className="body-span">{item.material.join(", ")}</span>
+            </Card.Text>
+            <Button className="cardBtn1">요청 내역 보기</Button>
+            <Button className="cardBtn2">채팅하기</Button>
+          </Card.Body>
+        </Card>
+      ));
+    } else {
+      <EmptyList />;
+    }
+  };
+
+  useEffect(() => {
+    checkStatus();
+  }, []);
 
   return (
     <div>
