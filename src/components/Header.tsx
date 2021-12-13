@@ -52,6 +52,7 @@ const Header = () => {
                   borderRight: "1px solid #ffffff",
                   marginRight: "1rem",
                   paddingRight: "1rem",
+                  fontWeight: "500",
                 }}
               >
                 A 가공 업체

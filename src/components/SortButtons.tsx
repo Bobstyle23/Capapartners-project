@@ -3,7 +3,7 @@ import { Container, DropdownButton, Form, Col, Row } from "react-bootstrap";
 import Switch from "react-switch";
 import "./styles/sortButtons.css";
 
-const SortButtons = () => {
+const SortButtons = ({ items }: any) => {
   const [check, setCheck] = useState(false);
 
   const handleChange = (check: boolean | ((prevState: boolean) => boolean)) => {
@@ -20,19 +20,62 @@ const SortButtons = () => {
               variant="light"
               title="가공방식"
             >
-              <Form.Check id="1" label="밀링" />
-              <Form.Check id="2" label="선반" />
+              <Form.Check
+                style={{
+                  marginLeft: "0.8rem",
+                }}
+                id="1"
+                label="밀링"
+              />
+              <Form.Check
+                style={{ marginLeft: "0.8rem" }}
+                id="2"
+                label="선반"
+              />
             </DropdownButton>
           </Col>
           <Col className="col2" lg={2} xs={6}>
             <DropdownButton
-              className="dropdownBtn"
+              className="dropdown2"
               style={{ display: "flex", justifyContent: "flex-start" }}
               variant="light"
               title="재료"
             >
-              <Form.Check id="1" label="밀링" />
-              <Form.Check id="2" label="선반" />
+              <Form.Check
+                style={{
+                  marginLeft: "0.8rem",
+                }}
+                id="1"
+                label="알루미늄"
+              />
+              <Form.Check
+                style={{
+                  marginLeft: "0.8rem",
+                }}
+                id="2"
+                label="탄소강"
+              />
+              <Form.Check
+                style={{
+                  marginLeft: "0.8rem",
+                }}
+                id="2"
+                label="구리"
+              />
+              <Form.Check
+                style={{
+                  marginLeft: "0.8rem",
+                }}
+                id="2"
+                label="합금강"
+              />
+              <Form.Check
+                style={{
+                  marginLeft: "0.8rem",
+                }}
+                id="2"
+                label="강철"
+              />
             </DropdownButton>
           </Col>
 
@@ -58,6 +101,7 @@ const SortButtons = () => {
               onChange={handleChange}
               checked={check}
             />
+
             <p
               style={{
                 color: "#323D45",

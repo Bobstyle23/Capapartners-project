@@ -5,10 +5,10 @@ const EmptyList = () => {
         style={{
           color: " #939FA5",
           width: "100%",
-          height: "8rem",
+          height: "6.3rem",
           border: "1px solid #939FA5",
           textAlign: "center",
-          padding: "3rem",
+          padding: "2.4rem",
           marginTop: "1rem",
         }}
       >

@@ -65,17 +65,7 @@
         "method": ["밀링"],
         "material": ["강철"],
         "status": "대기중"
-      },
-      {
-        "id": 7,
-        "title": "전동 킥보드 시제품 제작",
-        "client": "F 업체",
-        "due": "2020.12.09",
-        "docs": 1,
-        "amount": 20,
-        "method": ["밀링"],
-        "material": ["강철"],
-        "status": "상담중"
       }
+    
     ]
   }
