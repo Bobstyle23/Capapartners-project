@@ -20,72 +20,21 @@ const SortButtons = ({ items }: any) => {
               variant="light"
               title="가공방식"
             >
-              <Form.Check
-                style={{
-                  marginLeft: "0.8rem",
-                }}
-                id="1"
-                label="밀링"
-              />
-              <Form.Check
-                style={{ marginLeft: "0.8rem" }}
-                id="2"
-                label="선반"
-              />
+              <Form.Check className="formCheck" id="1" label="밀링" />
+              <Form.Check className="formCheck" id="2" label="선반" />
             </DropdownButton>
           </Col>
-          <Col className="col2" lg={2} xs={6}>
-            <DropdownButton
-              className="dropdown2"
-              style={{ display: "flex", justifyContent: "flex-start" }}
-              variant="light"
-              title="재료"
-            >
-              <Form.Check
-                style={{
-                  marginLeft: "0.8rem",
-                }}
-                id="1"
-                label="알루미늄"
-              />
-              <Form.Check
-                style={{
-                  marginLeft: "0.8rem",
-                }}
-                id="2"
-                label="탄소강"
-              />
-              <Form.Check
-                style={{
-                  marginLeft: "0.8rem",
-                }}
-                id="2"
-                label="구리"
-              />
-              <Form.Check
-                style={{
-                  marginLeft: "0.8rem",
-                }}
-                id="2"
-                label="합금강"
-              />
-              <Form.Check
-                style={{
-                  marginLeft: "0.8rem",
-                }}
-                id="2"
-                label="강철"
-              />
+          <Col className="col2">
+            <DropdownButton className="dropdown2" variant="light" title="재료">
+              <Form.Check className="formCheck" id="1" label="알루미늄" />
+              <Form.Check className="formCheck" id="2" label="탄소강" />
+              <Form.Check className="formCheck" id="2" label="구리" />
+              <Form.Check className="formCheck" id="2" label="합금강" />
+              <Form.Check className="formCheck" id="2" label="강철" />
             </DropdownButton>
           </Col>
-
-          <Col
-            className="toggleBtn"
-            style={{
-              display: "flex",
-              justifyContent: "flex-end",
-            }}
-          >
+          <Col lg={4}></Col>
+          <Col lg={3} className="col3">
             <Switch
               onColor="#BBDEFB"
               onHandleColor="#2196F3"
@@ -102,16 +51,7 @@ const SortButtons = ({ items }: any) => {
               checked={check}
             />
 
-            <p
-              style={{
-                color: "#323D45",
-                marginLeft: "1rem",
-                // marginTop: "-2.5rem",
-                // marginRight: "-15rem",
-              }}
-            >
-              상담 중인 요청만 보기
-            </p>
+            <p className="toggleText">상담 중인 요청만 보기</p>
           </Col>
         </Row>
       </Container>

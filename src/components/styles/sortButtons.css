@@ -7,16 +7,20 @@
   margin-left: -3.2rem;
 }
 
-.dropdown1 {
+.col3 {
   display: flex;
-  justify-content: flex-start;
+  justify-content: flex-end;
+
+  padding-left: -25rem;
+}
+.dropdown1 {
   border: 1px solid #939fa5;
   border-radius: 4px;
   width: 63%;
   background-color: #ffffff;
 }
 .dropdown2 {
-  width: 45%;
+  width: 22%;
   border: 1px solid #939fa5;
   border-radius: 4px;
   background-color: #ffffff;
@@ -27,16 +31,28 @@
   border: 1px solid #2196f3;
 }
 
-@media only screen and (max-width: 578px) {
+.formCheck {
+  margin-left: 0.8rem;
+}
+.toggleText {
+  color: #323d45;
+  margin-left: 1rem;
+}
+
+@media only screen and (min-width: 375px) {
   .toggleBtn {
-    margin-left: -19rem;
-    margin-top: 4.5rem;
+    display: flex;
     justify-content: flex-start;
   }
 }
 
 @media only screen and (max-width: 578px) {
-  .dropdownBtn {
-    margin-left: 2.1rem;
+  .dropdown1 {
+    margin-right: 4.5rem;
+    width: 89%;
+  }
+  .dropdown2 {
+    margin-left: 3.5rem;
+    width: 38%;
   }
 }

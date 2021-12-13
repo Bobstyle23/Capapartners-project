@@ -1,0 +1,25 @@
+.navbar {
+  background-color: #1565c0;
+}
+.logo {
+  font-weight: 900;
+}
+.offCanvas-title {
+  color: #1565c0;
+  width: 100%;
+  font-weight: 700;
+}
+.link-color {
+  color: #323d45;
+}
+#header-link {
+  color: #ffffff;
+  height: 35px;
+  border-right: 1px solid #ffffff;
+  margin-right: 1rem;
+  padding-right: 1rem;
+  font-weight: 500;
+}
+#header-link2 {
+  color: #ffffff;
+}
