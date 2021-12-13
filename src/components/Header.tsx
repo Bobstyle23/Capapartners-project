@@ -32,7 +32,7 @@ const Header = () => {
                   />
                   파트너정밀가공
                 </Nav.Link>
-                <Nav.Link className="link-color" href="#action2">
+                <Nav.Link className="link-color2" href="#action2">
                   로그아웃
                 </Nav.Link>
               </Nav>
