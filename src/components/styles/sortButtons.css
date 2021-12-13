@@ -1,0 +1,27 @@
+.col1 {
+  margin-bottom: 1rem;
+  margin-left: -1.4rem;
+}
+
+.col2 {
+  margin-left: -3.2rem;
+}
+
+.dropdown1 {
+  display: flex;
+  justify-content: flex-start;
+}
+
+@media only screen and (max-width: 578px) {
+  .toggleBtn {
+    margin-left: -19rem;
+    margin-top: 4.5rem;
+    justify-content: flex-start;
+  }
+}
+
+@media only screen and (max-width: 578px) {
+  .dropdownBtn {
+    margin-left: 2.1rem;
+  }
+}

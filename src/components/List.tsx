@@ -1,25 +1,11 @@
 import React, { useState } from "react";
 import datas from "../data.json";
-import {
-  Card,
-  Container,
-  Row,
-  Button,
-  Badge,
-  DropdownButton,
-  Form,
-  Col,
-} from "react-bootstrap";
-import Switch from "react-switch";
+import { Card, Container, Row, Button, Badge } from "react-bootstrap";
 import "./styles/list-styles.css";
 import EmptyList from "./EmptyList";
+import SortButtons from "./SortButtons";
 
 const List = () => {
-  const [check, setCheck] = useState(false);
-
-  const handleChange = (check: boolean | ((prevState: boolean) => boolean)) => {
-    setCheck(check);
-  };
   const items = datas.requests;
   const method = items.map((item) => item.method);
   console.log(items);
@@ -52,40 +38,9 @@ const List = () => {
             파트너님에게 딱 맞는 요청서를 찾아보세요.
           </p>
 
-          <Row>
-            <Col lg={2}>
-              <DropdownButton
-                id="dropdown-basic-button"
-                variant="light"
-                title="가공방식"
-                style={{
-                  backgroundColor: "#ffffff",
-                  marginLeft: "0.2rem",
-                  width: "10%",
-                  height: "20%",
-                  marginBottom: "1rem",
-                }}
-              >
-                <Form.Check id="1" label="밀링" />
-                <Form.Check id="2" label="선반" />
-              </DropdownButton>
-            </Col>
-            <Col lg={2}>
-              <DropdownButton
-                variant="light"
-                title="재료"
-                style={{
-                  backgroundColor: "#ffffff",
-                  width: "10%",
-                  height: "20%",
-                  marginBottom: "1rem",
-                  marginLeft: "0.2rem",
-                }}
-              >
-                <Form.Check id="1" label="밀링" />
-                <Form.Check id="2" label="선반" />
-              </DropdownButton>
-            </Col>
+          <SortButtons />
+
+          {/* <Row>
             <Col
               className="toggle"
               lg={2}
@@ -93,23 +48,7 @@ const List = () => {
                 paddingLeft: "18rem",
                 float: "right",
               }}
-            >
-              <Switch
-                onColor="#BBDEFB"
-                onHandleColor="#2196F3"
-                handleDiameter={20}
-                uncheckedIcon={false}
-                checkedIcon={false}
-                boxShadow="0px 1px 5px rgba(0, 0, 0, 0.6)"
-                activeBoxShadow="0px 0px 1px 10px rgba(0, 0, 0, 0.2)"
-                height={15}
-                width={35}
-                className="react-switch"
-                id="material-switch"
-                onChange={handleChange}
-                checked={check}
-              />
-            </Col>
+            ></Col>
 
             <Col
               lg={4}
@@ -117,18 +56,8 @@ const List = () => {
                 paddingLeft: "10rem",
                 marginLeft: "4rem",
               }}
-            >
-              <p
-                style={{
-                  color: "#323D45",
-                  // marginTop: "-2.5rem",
-                  // marginRight: "-15rem",
-                }}
-              >
-                상담 중인 요청만 보기
-              </p>
-            </Col>
-          </Row>
+            ></Col>
+          </Row> */}
 
           {items.length !== 0 ? (
             items.map((item) => (
