@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import datas from "../data.json";
 import {
   Card,
@@ -24,10 +24,99 @@ const List = () => {
   const items = datas.requests;
   let st = items.filter((item) => item.status === "상담중");
 
-  console.log(check);
-  if (check) {
-    console.log(st);
-  }
+  const checkFor = () => {
+    if (items.length !== 0 && !check) {
+      // change to items.length === 0 to render EmptyList
+      // items.length === 0 으로 변경하고 EmptyList 렌더링합니다.
+      return items.map((item) => (
+        <Card className="card" key={item.id}>
+          <Card.Body>
+            <Card.Title className="card-title">{item.title}</Card.Title>
+            {item.status === "상담중" ? (
+              <span>
+                <Badge className="badge-style" pill bg="light">
+                  상담중
+                </Badge>
+              </span>
+            ) : (
+              ""
+            )}
+            <h5 className="client-style">{item.client}</h5>
+            <Card.Subtitle className="mb-2 text-muted card-subtitle">
+              {item.due}까지 납기
+            </Card.Subtitle>
+            <hr />
+
+            <Card.Text className="cardText">
+              도면개수
+              <span className="body-span">{item.count || item.docs}개</span>
+            </Card.Text>
+            <Card.Text>
+              총 수량
+              <span className="body-span">{item.amount}개</span>
+            </Card.Text>
+            <Card.Text>
+              가공방식
+              <span className="body-span">{item.method.join(", ")}</span>
+            </Card.Text>
+            <Card.Text>
+              재료
+              <span className="body-span">{item.material.join(", ")}</span>
+            </Card.Text>
+            <Button className="cardBtn1">요청 내역 보기</Button>
+            <Button className="cardBtn2">채팅하기</Button>
+          </Card.Body>
+        </Card>
+      ));
+    } else if (check && st.length !== 0) {
+      // change to st.length === 0 to render EmptyList
+      // st.length === 0 으로 변경하고 EmptyList 렌더링합니다.
+      return st.map((item) => (
+        <Card className="card" key={item.id}>
+          <Card.Body>
+            <Card.Title className="card-title">{item.title}</Card.Title>
+            <span>
+              <Badge className="badge-style" pill bg="light">
+                {item.status}
+              </Badge>
+            </span>
+
+            <h5 className="client-style">{item.client}</h5>
+
+            <Card.Subtitle className="mb-2 text-muted card-subtitle">
+              {item.due}까지 납기
+            </Card.Subtitle>
+            <hr />
+
+            <Card.Text className="cardText">
+              도면개수
+              <span className="body-span">{item.count || item.docs}개</span>
+            </Card.Text>
+            <Card.Text>
+              총 수량
+              <span className="body-span">{item.amount}개</span>
+            </Card.Text>
+            <Card.Text>
+              가공방식
+              <span className="body-span">{item.method.join(", ")}</span>
+            </Card.Text>
+            <Card.Text>
+              재료
+              <span className="body-span">{item.material.join(", ")}</span>
+            </Card.Text>
+            <Button className="cardBtn1">요청 내역 보기</Button>
+            <Button className="cardBtn2">채팅하기</Button>
+          </Card.Body>
+        </Card>
+      ));
+    } else {
+      return <EmptyList />;
+    }
+  };
+
+  useEffect(() => {
+    checkFor();
+  });
 
   return (
     <div>
@@ -37,7 +126,6 @@ const List = () => {
           <p className="main-subheader">
             파트너님에게 딱 맞는 요청서를 찾아보세요.
           </p>
-
           <Row
             style={{
               margin: "0.7rem",
@@ -88,98 +176,9 @@ const List = () => {
               <p className="toggleText">상담 중인 요청만 보기</p>
             </Col>
           </Row>
-
-          {!check && items.length !== 0 ? (
-            items.map((item) => (
-              <Card className="card" key={item.id}>
-                <Card.Body>
-                  <Card.Title className="card-title">{item.title}</Card.Title>
-                  {item.status === "상담중" ? (
-                    <span>
-                      <Badge className="badge-style" pill bg="light">
-                        상담중
-                      </Badge>
-                    </span>
-                  ) : (
-                    ""
-                  )}
-                  <h5 className="client-style">{item.client}</h5>
-                  <Card.Subtitle className="mb-2 text-muted card-subtitle">
-                    {item.due}까지 납기
-                  </Card.Subtitle>
-                  <hr />
-
-                  <Card.Text className="cardText">
-                    도면개수
-                    <span className="body-span">
-                      {item.count || item.docs}개
-                    </span>
-                  </Card.Text>
-                  <Card.Text>
-                    총 수량
-                    <span className="body-span">{item.amount}개</span>
-                  </Card.Text>
-                  <Card.Text>
-                    가공방식
-                    <span className="body-span">{item.method.join(", ")}</span>
-                  </Card.Text>
-                  <Card.Text>
-                    재료
-                    <span className="body-span">
-                      {item.material.join(", ")}
-                    </span>
-                  </Card.Text>
-                  <Button className="cardBtn1">요청 내역 보기</Button>
-                  <Button className="cardBtn2">채팅하기</Button>
-                </Card.Body>
-              </Card>
-            ))
-          ) : <EmptyList /> ? (
-            st.map((item) => (
-              <Card className="card" key={item.id}>
-                <Card.Body>
-                  <Card.Title className="card-title">{item.title}</Card.Title>
-                  <span>
-                    <Badge className="badge-style" pill bg="light">
-                      {item.status}
-                    </Badge>
-                  </span>
-
-                  <h5 className="client-style">{item.client}</h5>
-
-                  <Card.Subtitle className="mb-2 text-muted card-subtitle">
-                    {item.due}까지 납기
-                  </Card.Subtitle>
-                  <hr />
-
-                  <Card.Text className="cardText">
-                    도면개수
-                    <span className="body-span">
-                      {item.count || item.docs}개
-                    </span>
-                  </Card.Text>
-                  <Card.Text>
-                    총 수량
-                    <span className="body-span">{item.amount}개</span>
-                  </Card.Text>
-                  <Card.Text>
-                    가공방식
-                    <span className="body-span">{item.method.join(", ")}</span>
-                  </Card.Text>
-                  <Card.Text>
-                    재료
-                    <span className="body-span">
-                      {item.material.join(", ")}
-                    </span>
-                  </Card.Text>
-                  <Button className="cardBtn1">요청 내역 보기</Button>
-                  <Button className="cardBtn2">채팅하기</Button>
-                </Card.Body>
-              </Card>
-            ))
-          ) : (
-            <EmptyList />
-          )}
+          {checkFor()}
+          {/* Later will change using ternary operator */}
+          {/* 나중에 ternary operator로  병경할게요 */}
         </Row>
       </Container>
     </div>
