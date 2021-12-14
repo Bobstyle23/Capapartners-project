@@ -106,7 +106,8 @@
 }
 
 .formCheck {
-  margin-left: 0.8rem;
+  margin-left: 1rem;
+  margin-right: 0.4rem;
 }
 .toggleText {
   color: #323d45;
@@ -117,6 +118,10 @@
 
 .toggle-switch {
   margin-top: 0.2rem;
+}
+
+.dropdown1:checked {
+  background-color: red;
 }
 
 @media only screen and (min-width: 375px) {

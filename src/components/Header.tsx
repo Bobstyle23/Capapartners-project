@@ -25,7 +25,10 @@ const Header = () => {
               </Offcanvas.Title>
             </Offcanvas.Header>
             <Offcanvas.Body>
-              <Nav className="justify-content-end flex-grow-1 pe-3">
+              <Nav
+                style={{ boxSizing: "border-box" }}
+                className="justify-content-end flex-grow-1 pe-3"
+              >
                 <Nav.Link className="link-color" href="#action1">
                   <DomainIcon
                     style={{ marginBottom: "0.65rem", marginRight: "0.3rem" }}
