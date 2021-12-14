@@ -36,7 +36,11 @@
 }
 .toggleText {
   color: #323d45;
-  margin-left: 1rem;
+  margin-left: 0.5rem;
+}
+
+.toggle-switch {
+  margin-top: 0.2rem;
 }
 
 @media only screen and (min-width: 375px) {

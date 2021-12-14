@@ -24,11 +24,11 @@ const SortButtons = () => {
 
   const items = datas.requests;
   let st = items.filter((item) => item.status === "상담중");
-  console.log(st);
+  // console.log(st);
 
   console.log(check);
   if (check) {
-    console.log(st.map((name) => name.client));
+    console.log(st);
   }
 
   const checkStatus = () => {
@@ -115,7 +115,7 @@ const SortButtons = () => {
               activeBoxShadow="0px 0px 1px 10px rgba(0, 0, 0, 0.2)"
               height={15}
               width={35}
-              className="react-switch"
+              className="toggle-switch"
               id="material-switch"
               onChange={handleChange}
               checked={check}
