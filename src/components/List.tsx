@@ -10,7 +10,7 @@ import {
   Col,
   Form,
 } from "react-bootstrap";
-// import RotateLeftIcon from "@material-ui/icons/RotateLeft";
+import RefreshIcon from "@material-ui/icons/Refresh";
 import "./styles/list-styles.css";
 import Switch from "react-switch";
 import EmptyList from "./EmptyList";
@@ -23,6 +23,21 @@ const List = () => {
   const handleChange = (check: boolean | ((prevState: boolean) => boolean)) => {
     setCheck(check);
   };
+
+  const handleMethodChange = (
+    change: boolean | ((prevState: boolean) => boolean)
+  ) => {
+    setCheckMethod(change);
+    console.log(change);
+  };
+
+  const handleMaterialChange = (
+    change: boolean | ((prevState: boolean) => boolean)
+  ) => {
+    setCheckMaterial(change);
+    console.log(change);
+  };
+
   const items = datas.requests;
   const st = items.filter((item) => item.status === "상담중");
   const methodM = items.filter((m) => m.method.includes("밀링"));
@@ -32,6 +47,12 @@ const List = () => {
   const materialK = items.filter((k) => k.material.includes("강철"));
   const materialG = items.filter((g) => g.material.includes("구리"));
   const materialS = items.filter((s) => s.material.includes("스테인리스강"));
+
+  const onMethodChange = () => {
+    if (methodM) {
+      console.log(methodM.map((mm) => mm.title));
+    }
+  };
 
   const handleCheckChange = (e: { target: { name: any } }) => {
     if (e.target.name === "밀링") {
@@ -173,21 +194,20 @@ const List = () => {
                 title="가공방식"
               >
                 <Form.Check
-                  onChange={handleCheckChange}
+                  onChange={() => handleMethodChange(!checkMethod)}
                   className="formCheck"
                   id="1"
                   label="밀링"
                   name="밀링"
-                  checked={checkMethod}
                 />
 
                 <Form.Check
+                  // onChange={handleCheckChange}
+                  onChange={() => handleMethodChange(!checkMethod)}
                   className="formCheck"
                   id="2"
                   label="선반"
                   name="선반"
-                  onChange={handleCheckChange}
-                  checked={checkMethod}
                 />
               </DropdownButton>
             </Col>
@@ -199,50 +219,69 @@ const List = () => {
               >
                 <Form.Check
                   className="formCheck"
-                  onChange={handleCheckChange}
+                  // onChange={handleCheckChange}
+                  onChange={() => handleMaterialChange(!checkMaterial)}
                   id="3"
                   label="알루미늄"
                   name="알루미늄"
-                  checked={checkMaterial ? !checkMaterial : checkMaterial}
                 />
                 <Form.Check
                   className="formCheck"
-                  onChange={handleCheckChange}
+                  // onChange={handleCheckChange}
+                  onChange={() => handleMaterialChange(!checkMaterial)}
                   id="4"
                   label="탄소강"
                   name="탄소강"
-                  checked={checkMaterial}
                 />
                 <Form.Check
                   className="formCheck"
-                  onChange={handleCheckChange}
+                  // onChange={handleCheckChange}
+                  onChange={() => handleMaterialChange(!checkMaterial)}
                   id="5"
                   label="구리"
                   name="구리"
-                  checked={checkMaterial}
                 />
-
                 <Form.Check
                   className="formCheck"
-                  onChange={handleCheckChange}
+                  // onChange={handleCheckChange}
+                  onChange={() => handleMaterialChange(!checkMaterial)}
+                  id="6"
+                  label="스테인리스강"
+                  name="스테인리스강"
+                />
+                <Form.Check
+                  className="formCheck"
+                  // onChange={handleCheckChange}
+                  onChange={() => handleMaterialChange(!checkMaterial)}
                   id="7"
                   label="강철"
                   name="강철"
-                  checked={checkMaterial}
                 />
               </DropdownButton>
             </Col>
             <Col lg={4}>
-              {/* <RotateLeftIcon
-                style={{
-                  color: "#2196F3",
-                  width: "2rem",
-                  height: "2rem",
-                  marginRight: "0.5rem",
-                  cursor: " pointer",
-                }}
-              />
-              <span style={{ color: "#2196F3" }}>필터링 리셋</span> */}
+              {(checkMaterial || checkMethod) && (
+                <>
+                  <RefreshIcon
+                    style={{
+                      color: "#2196F3",
+                      width: "2rem",
+                      height: "2rem",
+                      marginRight: "0.5rem",
+                      cursor: " pointer",
+                    }}
+                  />
+                  <span
+                    onClick={() => setCheckMethod(checkMethod)}
+                    style={{
+                      color: "#2196F3",
+                      cursor: " pointer",
+                    }}
+                  >
+                    필터링 리셋
+                  </span>
+                </>
+              )}
             </Col>
             <Col lg={3} className="col3">
               <Switch
