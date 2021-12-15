@@ -199,10 +199,8 @@ const List = () => {
             <Col className="col1" lg={2} xs={6}>
               <DropdownButton
                 className="dropdown1"
-                variant="light"
+                variant={!checkMethod ? "light" : `primary`}
                 title="가공방식"
-                autoClose="inside"
-                onSelect={() => handleSelect()}
               >
                 <Form.Check
                   onChange={handleCheckChange}
@@ -226,9 +224,8 @@ const List = () => {
             <Col className="col2">
               <DropdownButton
                 className="dropdown2"
-                variant="light"
-                title="재료"
-                autoClose="inside"
+                variant={!checkMaterial ? "light" : "primary"}
+                title={!checkMaterial ? "재료" : `재료(${1})`}
               >
                 <Form.Check
                   className="formCheck"
