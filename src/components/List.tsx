@@ -19,7 +19,7 @@ const List = () => {
   const [check, setCheck] = useState(false);
   const [checkMethod, setCheckMethod] = useState(false);
   const [checkMaterial, setCheckMaterial] = useState(false);
-  const [selectItem, setSelectItem] = useState(false);
+  const [reset, setReset] = useState(false);
 
   const handleChange = (check: boolean | ((prevState: boolean) => boolean)) => {
     setCheck(check);
@@ -38,12 +38,13 @@ const List = () => {
     setCheckMaterial(change);
     console.log(change);
   };
-
-  const handleSelect = () => {
-    if (selectItem) {
-      setSelectItem(selectItem);
-      console.log(selectItem);
-    }
+  const resetHandler = (
+    change: boolean | ((prevState: boolean) => boolean)
+  ) => {
+    setReset(change);
+    setCheckMaterial(change);
+    setCheckMethod(change);
+    console.log(change);
   };
 
   const items = datas.requests;
@@ -86,6 +87,11 @@ const List = () => {
       console.log(materialS);
       return materialS;
     }
+  };
+
+  const handleReset = () => {
+    setCheckMethod(checkMethod);
+    setCheckMaterial(checkMaterial);
   };
 
   const checkForLength = () => {
@@ -202,12 +208,11 @@ const List = () => {
                 style={{
                   border: !checkMethod ? "" : "none",
                 }}
-                variant={!checkMethod ? "light" : `primary (1)`}
+                variant={!checkMethod && !reset ? "light" : `primary (${1})`}
                 title="가공방식"
               >
                 <Form.Check
                   onChange={handleCheckChange}
-                  // onChange={() => handleMethodChange(!checkMethod)}
                   className="formCheck"
                   id="1"
                   label="밀링"
@@ -216,7 +221,6 @@ const List = () => {
 
                 <Form.Check
                   onChange={handleCheckChange}
-                  // onChange={() => handleMethodChange(!checkMethod)}
                   className="formCheck"
                   id="2"
                   label="선반"
@@ -228,13 +232,12 @@ const List = () => {
               <DropdownButton
                 className="dropdown2"
                 style={{ border: !checkMaterial ? "" : "none" }}
-                variant={!checkMaterial ? "light" : "primary"}
+                variant={!checkMaterial && !reset ? "light" : "primary"}
                 title={!checkMaterial ? "재료" : `재료(${1})`}
               >
                 <Form.Check
                   className="formCheck"
                   onChange={handleCheckChange}
-                  // onChange={() => handleMaterialChange(!checkMaterial)}
                   id="3"
                   label="알루미늄"
                   name="알루미늄"
@@ -242,7 +245,6 @@ const List = () => {
                 <Form.Check
                   className="formCheck"
                   onChange={handleCheckChange}
-                  // onChange={() => handleMaterialChange(!checkMaterial)}
                   id="4"
                   label="탄소강"
                   name="탄소강"
@@ -250,7 +252,6 @@ const List = () => {
                 <Form.Check
                   className="formCheck"
                   onChange={handleCheckChange}
-                  // onChange={() => handleMaterialChange(!checkMaterial)}
                   id="5"
                   label="구리"
                   name="구리"
@@ -258,7 +259,6 @@ const List = () => {
                 <Form.Check
                   className="formCheck"
                   onChange={handleCheckChange}
-                  // onChange={() => handleMaterialChange(!checkMaterial)}
                   id="6"
                   label="스테인리스강"
                   name="스테인리스강"
@@ -266,18 +266,17 @@ const List = () => {
                 <Form.Check
                   className="formCheck"
                   onChange={handleCheckChange}
-                  // onChange={() => handleMaterialChange(!checkMaterial)}
                   id="7"
                   label="강철"
                   name="강철"
                 />
               </DropdownButton>
             </Col>
-            <Col lg={4} xs={12} md={6}>
+            <Col className="col-refresh" lg={4}>
               {(checkMaterial || checkMethod) && (
                 <>
                   <button
-                    onClick={() => console.log("clicked")}
+                    onClick={() => resetHandler(reset)}
                     style={{ border: "none", background: "none" }}
                   >
                     <RefreshIcon
