@@ -38,13 +38,9 @@ const List = () => {
     setCheckMaterial(change);
     console.log(change);
   };
-  const resetHandler = (
-    change: boolean | ((prevState: boolean) => boolean)
-  ) => {
-    setReset(change);
-    setCheckMaterial(change);
-    setCheckMethod(change);
-    console.log(change);
+  const resetHandler = () => {
+    window.location.reload();
+    setReset(reset);
   };
 
   const items = datas.requests;
@@ -87,11 +83,6 @@ const List = () => {
       console.log(materialS);
       return materialS;
     }
-  };
-
-  const handleReset = () => {
-    setCheckMethod(checkMethod);
-    setCheckMaterial(checkMaterial);
   };
 
   const checkForLength = () => {
@@ -273,10 +264,10 @@ const List = () => {
               </DropdownButton>
             </Col>
             <Col className="col-refresh" lg={4}>
-              {(checkMaterial || checkMethod) && (
+              {(checkMaterial || checkMethod || check) && (
                 <>
                   <button
-                    onClick={() => resetHandler(reset)}
+                    onClick={resetHandler}
                     style={{ border: "none", background: "none" }}
                   >
                     <RefreshIcon
