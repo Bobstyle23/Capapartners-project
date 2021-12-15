@@ -19,6 +19,7 @@ const List = () => {
   const [check, setCheck] = useState(false);
   const [checkMethod, setCheckMethod] = useState(false);
   const [checkMaterial, setCheckMaterial] = useState(false);
+  const [selectItem, setSelectItem] = useState(false);
 
   const handleChange = (check: boolean | ((prevState: boolean) => boolean)) => {
     setCheck(check);
@@ -38,6 +39,13 @@ const List = () => {
     console.log(change);
   };
 
+  const handleSelect = () => {
+    if (selectItem) {
+      setSelectItem(selectItem);
+      console.log(selectItem);
+    }
+  };
+
   const items = datas.requests;
   const st = items.filter((item) => item.status === "상담중");
   const methodM = items.filter((m) => m.method.includes("밀링"));
@@ -48,32 +56,33 @@ const List = () => {
   const materialG = items.filter((g) => g.material.includes("구리"));
   const materialS = items.filter((s) => s.material.includes("스테인리스강"));
 
-  const onMethodChange = () => {
-    if (methodM) {
-      console.log(methodM.map((mm) => mm.title));
-    }
-  };
-
   const handleCheckChange = (e: { target: { name: any } }) => {
     if (e.target.name === "밀링") {
+      handleMethodChange(!checkMethod);
       console.log(methodM);
       return methodM;
     } else if (e.target.name === "선반") {
+      handleMethodChange(!checkMethod);
       console.log(methodS);
       return methodS;
     } else if (e.target.name === "알루미늄") {
+      handleMaterialChange(!checkMaterial);
       console.log(materialA);
       return materialA;
     } else if (e.target.name === "탄소강") {
+      handleMaterialChange(!checkMaterial);
       console.log(materialT);
       return materialT;
     } else if (e.target.name === "강철") {
+      handleMaterialChange(!checkMaterial);
       console.log(materialK);
       return materialK;
     } else if (e.target.name === "구리") {
+      handleMaterialChange(!checkMaterial);
       console.log(materialG);
       return materialG;
     } else if (e.target.name === "스테인리스강") {
+      handleMaterialChange(!checkMaterial);
       console.log(materialS);
       return materialS;
     }
@@ -192,9 +201,12 @@ const List = () => {
                 className="dropdown1"
                 variant="light"
                 title="가공방식"
+                autoClose="inside"
+                onSelect={() => handleSelect()}
               >
                 <Form.Check
-                  onChange={() => handleMethodChange(!checkMethod)}
+                  onChange={handleCheckChange}
+                  // onChange={() => handleMethodChange(!checkMethod)}
                   className="formCheck"
                   id="1"
                   label="밀링"
@@ -202,8 +214,8 @@ const List = () => {
                 />
 
                 <Form.Check
-                  // onChange={handleCheckChange}
-                  onChange={() => handleMethodChange(!checkMethod)}
+                  onChange={handleCheckChange}
+                  // onChange={() => handleMethodChange(!checkMethod)}
                   className="formCheck"
                   id="2"
                   label="선반"
@@ -216,66 +228,70 @@ const List = () => {
                 className="dropdown2"
                 variant="light"
                 title="재료"
+                autoClose="inside"
               >
                 <Form.Check
                   className="formCheck"
-                  // onChange={handleCheckChange}
-                  onChange={() => handleMaterialChange(!checkMaterial)}
+                  onChange={handleCheckChange}
+                  // onChange={() => handleMaterialChange(!checkMaterial)}
                   id="3"
                   label="알루미늄"
                   name="알루미늄"
                 />
                 <Form.Check
                   className="formCheck"
-                  // onChange={handleCheckChange}
-                  onChange={() => handleMaterialChange(!checkMaterial)}
+                  onChange={handleCheckChange}
+                  // onChange={() => handleMaterialChange(!checkMaterial)}
                   id="4"
                   label="탄소강"
                   name="탄소강"
                 />
                 <Form.Check
                   className="formCheck"
-                  // onChange={handleCheckChange}
-                  onChange={() => handleMaterialChange(!checkMaterial)}
+                  onChange={handleCheckChange}
+                  // onChange={() => handleMaterialChange(!checkMaterial)}
                   id="5"
                   label="구리"
                   name="구리"
                 />
                 <Form.Check
                   className="formCheck"
-                  // onChange={handleCheckChange}
-                  onChange={() => handleMaterialChange(!checkMaterial)}
+                  onChange={handleCheckChange}
+                  // onChange={() => handleMaterialChange(!checkMaterial)}
                   id="6"
                   label="스테인리스강"
                   name="스테인리스강"
                 />
                 <Form.Check
                   className="formCheck"
-                  // onChange={handleCheckChange}
-                  onChange={() => handleMaterialChange(!checkMaterial)}
+                  onChange={handleCheckChange}
+                  // onChange={() => handleMaterialChange(!checkMaterial)}
                   id="7"
                   label="강철"
                   name="강철"
                 />
               </DropdownButton>
             </Col>
-            <Col lg={4}>
+            <Col lg={4} xs={12} md={6}>
               {(checkMaterial || checkMethod) && (
                 <>
-                  <RefreshIcon
-                    style={{
-                      color: "#2196F3",
-                      width: "2rem",
-                      height: "2rem",
-                      marginRight: "0.5rem",
-                      cursor: " pointer",
-                    }}
-                  />
+                  <button
+                    onClick={() => console.log("clicked")}
+                    style={{ border: "none", background: "none" }}
+                  >
+                    <RefreshIcon
+                      style={{
+                        color: "#2196F3",
+                        width: "2rem",
+                        height: "2rem",
+                        marginRight: "0.1rem",
+                        cursor: " pointer",
+                      }}
+                    />
+                  </button>
                   <span
-                    onClick={() => setCheckMethod(checkMethod)}
                     style={{
                       color: "#2196F3",
-                      cursor: " pointer",
                     }}
                   >
                     필터링 리셋
