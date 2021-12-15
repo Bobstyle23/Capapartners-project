@@ -199,7 +199,10 @@ const List = () => {
             <Col className="col1" lg={2} xs={6}>
               <DropdownButton
                 className="dropdown1"
-                variant={!checkMethod ? "light" : `primary`}
+                style={{
+                  border: !checkMethod ? "" : "none",
+                }}
+                variant={!checkMethod ? "light" : `primary (1)`}
                 title="가공방식"
               >
                 <Form.Check
@@ -224,6 +227,7 @@ const List = () => {
             <Col className="col2">
               <DropdownButton
                 className="dropdown2"
+                style={{ border: !checkMaterial ? "" : "none" }}
                 variant={!checkMaterial ? "light" : "primary"}
                 title={!checkMaterial ? "재료" : `재료(${1})`}
               >

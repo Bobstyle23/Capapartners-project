@@ -90,11 +90,11 @@
 .dropdown1 {
   border: 1px solid #939fa5;
   border-radius: 4px;
-  width: 63%;
+  width: 60%;
   background-color: #ffffff;
 }
 .dropdown2 {
-  width: 22%;
+  width: 21.3%;
   border: 1px solid #939fa5;
   border-radius: 4px;
   background-color: #ffffff;
@@ -120,10 +120,6 @@
   margin-top: 0.2rem;
 }
 
-.dropdown1:checked {
-  background-color: red;
-}
-
 @media only screen and (min-width: 375px) {
   .toggleBtn {
     display: flex;
@@ -134,11 +130,11 @@
 @media only screen and (max-width: 578px) {
   .dropdown1 {
     margin-right: 4.5rem;
-    width: 89%;
+    width: 80%;
   }
   .dropdown2 {
     margin-left: 3.5rem;
-    width: 38%;
+    width: 36%;
   }
 }
 
