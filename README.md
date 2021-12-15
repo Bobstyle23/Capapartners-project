@@ -1,46 +1,9 @@
-# Getting Started with Create React App
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## Available Scripts
-
-In the project directory, you can run:
-
-### `yarn start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `yarn test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `yarn build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+<img width="1676" alt="Screen Shot 2021-12-15 at 5 20 07 PM" src="https://user-images.githubusercontent.com/62409522/146150102-715f71c5-8b40-4780-9bb5-d47309b06969.png">
+<img width="1676" alt="Screen Shot 2021-12-15 at 5 20 21 PM" src="https://user-images.githubusercontent.com/62409522/146150120-1b8d059b-b1a2-4db5-a10c-69a9480bbd01.png">
+<img width="1664" alt="Screen Shot 2021-12-15 at 5 20 36 PM" src="https://user-images.githubusercontent.com/62409522/146150121-0527469c-a22c-42aa-bd78-2411fb5dae81.png">
+<img width="1673" alt="Screen Shot 2021-12-15 at 5 21 06 PM" src="https://user-images.githubusercontent.com/62409522/146150126-f4642ceb-5469-4eb5-a4f6-0f3ce6900c6b.png">
+<img width="1672" alt="Screen Shot 2021-12-15 at 5 21 25 PM" src="https://user-images.githubusercontent.com/62409522/146150129-9ca3ed61-67ed-48e9-a023-2048e2fab2e9.png">
+<img width="1677" alt="Screen Shot 2021-12-15 at 5 21 54 PM" src="https://user-images.githubusercontent.com/62409522/146150131-94fa8074-8a2a-437c-8910-c398fb9976a7.png">
+<img width="499" alt="Screen Shot 2021-12-15 at 5 22 58 PM" src="https://user-images.githubusercontent.com/62409522/146150132-1338cee0-4f08-49e6-a707-b7cae41436d1.png">
+<img width="498" alt="Screen Shot 2021-12-15 at 5 23 11 PM" src="https://user-images.githubusercontent.com/62409522/146150133-5279e39c-0cc5-4c3f-a51a-2d89bca7eced.png">
+<img width="494" alt="Screen Shot 2021-12-15 at 5 23 26 PM" src="https://user-images.githubusercontent.com/62409522/146150135-2831fb62-94a2-401d-bae9-ffe8e03621f4.png">
