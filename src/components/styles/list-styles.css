@@ -84,8 +84,7 @@
 .col3 {
   display: flex;
   justify-content: flex-end;
-
-  padding-left: -25rem;
+  margin-right: -2.8rem;
 }
 .dropdown1 {
   border: 1px solid #939fa5;
@@ -129,6 +128,10 @@
     display: flex;
     justify-content: flex-start;
     margin-left: -1rem;
+  }
+
+  .dropdown2 {
+    width: 23.1%;
   }
 }
 
