@@ -160,3 +160,19 @@
     margin-top: 1rem;
   }
 }
+
+@media (max-width: 600px) {
+  .card {
+    width: 30rem;
+  }
+  .row-style {
+    margin: 1rem;
+  }
+  .dropdown1 {
+    width: 52%;
+  }
+  .dropdown2 {
+    width: 28%;
+    margin-left: -2rem;
+  }
+}
