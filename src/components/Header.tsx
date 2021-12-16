@@ -31,7 +31,7 @@ const Header = () => {
               >
                 <Nav.Link className="link-color" href="#action1">
                   <DomainIcon
-                    style={{ marginBottom: "0.65rem", marginRight: "0.3rem" }}
+                    style={{ marginBottom: "0.65rem", marginRight: "0.5rem" }}
                   />
                   파트너정밀가공
                 </Nav.Link>

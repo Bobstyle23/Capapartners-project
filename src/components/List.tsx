@@ -14,7 +14,6 @@ import RefreshIcon from "@material-ui/icons/Refresh";
 import "./styles/list-styles.css";
 import Switch from "react-switch";
 import EmptyList from "./EmptyList";
-import { Filter } from "@material-ui/icons";
 
 const List = () => {
   const [check, setCheck] = useState(false);
@@ -57,39 +56,30 @@ const List = () => {
   const handleCheckChange = (e: { target: { name: any } }) => {
     if (e.target.name === "밀링") {
       handleMethodChange(!checkMethod);
-      console.log(methodM);
-      return methodM;
+      console.log(methodM.map((mm) => mm.title));
     } else if (e.target.name === "선반") {
       handleMethodChange(!checkMethod);
-      console.log(methodS);
-      return methodS;
+      console.log(methodS.map((ms) => ms.title));
     } else if (e.target.name === "알루미늄") {
       handleMaterialChange(!checkMaterial);
       console.log(materialA);
-      return materialA;
     } else if (e.target.name === "탄소강") {
       handleMaterialChange(!checkMaterial);
       console.log(materialT);
-      return materialT;
     } else if (e.target.name === "강철") {
       handleMaterialChange(!checkMaterial);
       console.log(materialK);
-      return materialK;
     } else if (e.target.name === "구리") {
       handleMaterialChange(!checkMaterial);
       console.log(materialG);
-      return materialG;
     } else if (e.target.name === "스테인리스강") {
       handleMaterialChange(!checkMaterial);
       console.log(materialS);
-      return materialS;
     }
   };
 
   const checkForLength = () => {
     if (items.length !== 0 && !check) {
-      // change to items.length === 0 to render EmptyList
-      // items.length === 0 으로 변경하고 EmptyList 렌더링합니다.
       return items.map((item) => (
         <Card className="card" key={item.id}>
           <Card.Body>
@@ -131,8 +121,6 @@ const List = () => {
         </Card>
       ));
     } else if (check && st.length !== 0) {
-      // change to st.length === 0 to render EmptyList
-      // st.length === 0 으로 변경하고 EmptyList 렌더링합니다.
       return st.map((item) => (
         <Card className="card" key={item.id}>
           <Card.Body>
@@ -171,18 +159,12 @@ const List = () => {
           </Card.Body>
         </Card>
       ));
-    } else {
-      return <EmptyList />;
-    }
-  };
-
-  const checkForMaterialA = () => {
-    if (items.length !== 0 && !checkMaterial) {
-      return items.map((item) => (
-        <Card className="card" key={item.id}>
+    } else if (methodM.length !== 0) {
+      return methodM.map((mm) => (
+        <Card className="card" key={mm.id}>
           <Card.Body>
-            <Card.Title className="card-title">{item.title}</Card.Title>
-            {item.status === "상담중" ? (
+            <Card.Title className="card-title">{mm.title}</Card.Title>
+            {mm.status === "상담중" ? (
               <span>
                 <Badge className="badge-style" pill bg="light">
                   상담중
@@ -191,68 +173,27 @@ const List = () => {
             ) : (
               ""
             )}
-            <h5 className="client-style">{item.client}</h5>
+            <h5 className="client-style">{mm.client}</h5>
             <Card.Subtitle className="mb-2 text-muted card-subtitle">
-              {item.due}까지 납기
+              {mm.due}까지 납기
             </Card.Subtitle>
             <hr />
 
             <Card.Text className="cardText">
               도면개수
-              <span className="body-span">{item.count || item.docs}개</span>
+              <span className="body-span">{mm.count || mm.docs}개</span>
             </Card.Text>
             <Card.Text>
               총 수량
-              <span className="body-span">{item.amount}개</span>
+              <span className="body-span">{mm.amount}개</span>
             </Card.Text>
             <Card.Text>
               가공방식
-              <span className="body-span">{item.method.join(", ")}</span>
+              <span className="body-span">{mm.method.join(", ")}</span>
             </Card.Text>
             <Card.Text>
               재료
-              <span className="body-span">{item.material.join(", ")}</span>
-            </Card.Text>
-            <Button className="cardBtn1">요청 내역 보기</Button>
-            <Button className="cardBtn2">채팅하기</Button>
-          </Card.Body>
-        </Card>
-      ));
-    } else if (checkMaterial && materialA.length !== 0) {
-      return materialA.map((ma) => (
-        <Card className="card" key={ma.id}>
-          <Card.Body>
-            <Card.Title className="card-title">{ma.title}</Card.Title>
-            {ma.status === "상담중" ? (
-              <span>
-                <Badge className="badge-style" pill bg="light">
-                  상담중
-                </Badge>
-              </span>
-            ) : (
-              ""
-            )}
-            <h5 className="client-style">{ma.client}</h5>
-            <Card.Subtitle className="mb-2 text-muted card-subtitle">
-              {ma.due}까지 납기
-            </Card.Subtitle>
-            <hr />
-
-            <Card.Text className="cardText">
-              도면개수
-              <span className="body-span">{ma.count || ma.docs}개</span>
-            </Card.Text>
-            <Card.Text>
-              총 수량
-              <span className="body-span">{ma.amount}개</span>
-            </Card.Text>
-            <Card.Text>
-              가공방식
-              <span className="body-span">{ma.method.join(", ")}</span>
-            </Card.Text>
-            <Card.Text>
-              재료
-              <span className="body-span">{ma.material.join(", ")}</span>
+              <span className="body-span">{mm.material.join(", ")}</span>
             </Card.Text>
             <Button className="cardBtn1">요청 내역 보기</Button>
             <Button className="cardBtn2">채팅하기</Button>
@@ -262,15 +203,10 @@ const List = () => {
     } else {
       return <EmptyList />;
     }
-  };
-
-  const filterMethodAndMaterial = () => {
-    return checkForMaterialA();
   };
 
   useEffect(() => {
     checkForLength();
-    filterMethodAndMaterial();
   }, []);
 
   return (
@@ -404,9 +340,8 @@ const List = () => {
               <p className="toggleText">상담 중인 요청만 보기</p>
             </Col>
           </Row>
+
           {checkForLength()}
-          {/* Later will change using ternary operator */}
-          {/* 나중에 ternary operator로  병경할게요 */}
         </Row>
       </Container>
     </div>
