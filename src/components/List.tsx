@@ -159,47 +159,6 @@ const List = () => {
           </Card.Body>
         </Card>
       ));
-    } else if (methodM.length !== 0) {
-      return methodM.map((mm) => (
-        <Card className="card" key={mm.id}>
-          <Card.Body>
-            <Card.Title className="card-title">{mm.title}</Card.Title>
-            {mm.status === "상담중" ? (
-              <span>
-                <Badge className="badge-style" pill bg="light">
-                  상담중
-                </Badge>
-              </span>
-            ) : (
-              ""
-            )}
-            <h5 className="client-style">{mm.client}</h5>
-            <Card.Subtitle className="mb-2 text-muted card-subtitle">
-              {mm.due}까지 납기
-            </Card.Subtitle>
-            <hr />
-
-            <Card.Text className="cardText">
-              도면개수
-              <span className="body-span">{mm.count || mm.docs}개</span>
-            </Card.Text>
-            <Card.Text>
-              총 수량
-              <span className="body-span">{mm.amount}개</span>
-            </Card.Text>
-            <Card.Text>
-              가공방식
-              <span className="body-span">{mm.method.join(", ")}</span>
-            </Card.Text>
-            <Card.Text>
-              재료
-              <span className="body-span">{mm.material.join(", ")}</span>
-            </Card.Text>
-            <Button className="cardBtn1">요청 내역 보기</Button>
-            <Button className="cardBtn2">채팅하기</Button>
-          </Card.Body>
-        </Card>
-      ));
     } else {
       return <EmptyList />;
     }
