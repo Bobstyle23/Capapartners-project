@@ -44,6 +44,7 @@ const List = () => {
   };
 
   const items = datas.requests;
+
   const st = items.filter((item) => item.status === "상담중");
   const methodM = items.filter((m) => m.method.includes("밀링"));
   const methodS = items.filter((s) => s.method.includes("선반"));
@@ -56,10 +57,10 @@ const List = () => {
   const handleCheckChange = (e: { target: { name: any } }) => {
     if (e.target.name === "밀링") {
       handleMethodChange(!checkMethod);
-      console.log(methodM.map((mm) => mm.title));
+      console.log(methodM);
     } else if (e.target.name === "선반") {
       handleMethodChange(!checkMethod);
-      console.log(methodS.map((ms) => ms.title));
+      console.log(methodS);
     } else if (e.target.name === "알루미늄") {
       handleMaterialChange(!checkMaterial);
       console.log(materialA);
@@ -163,7 +164,6 @@ const List = () => {
       return <EmptyList />;
     }
   };
-
   useEffect(() => {
     checkForLength();
   }, []);
