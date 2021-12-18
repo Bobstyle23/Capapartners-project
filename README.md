@@ -4,7 +4,8 @@
 4. open project in any IDE 
 5. npm/yarn install 
 6. npm/yarn start
-7. Enjoy!!!
+7. To see EmptyList component delete any data from data.json and sort respectively, you will see EmptyList Component
+8. Leave Feedback 🤗😉
 
 <img width="1676" alt="Screen Shot 2021-12-15 at 5 20 07 PM" src="https://user-images.githubusercontent.com/62409522/146150102-715f71c5-8b40-4780-9bb5-d47309b06969.png">
 <img width="1676" alt="Screen Shot 2021-12-15 at 5 20 21 PM" src="https://user-images.githubusercontent.com/62409522/146150120-1b8d059b-b1a2-4db5-a10c-69a9480bbd01.png">
