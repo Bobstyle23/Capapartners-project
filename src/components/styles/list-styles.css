@@ -115,7 +115,14 @@
 .toggle-switch {
   margin-top: 0.2rem;
 }
-
+@media (max-device-width: 500px) {
+  .row-style {
+    margin: 2rem 5rem 0 5rem;
+  }
+  .card {
+    width: 30rem;
+  }
+}
 @media (min-width: 600px) {
   .toggleBtn {
     display: flex;
