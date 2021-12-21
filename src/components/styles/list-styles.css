@@ -115,6 +115,14 @@
 .toggle-switch {
   margin-top: 0.2rem;
 }
+.refresh-icon {
+  color: #2196f3;
+  width: 2.5rem;
+  height: 2.5rem;
+  margin-right: 0.1rem;
+  margin-top: -0.1rem;
+  cursor: pointer;
+}
 @media (max-device-width: 500px) {
   .row-style {
     margin: 2rem 5rem 0 5rem;

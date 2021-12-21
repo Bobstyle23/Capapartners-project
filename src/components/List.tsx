@@ -633,15 +633,7 @@ const List = () => {
                     onClick={resetHandler}
                     style={{ border: "none", background: "none" }}
                   >
-                    <RefreshIcon
-                      style={{
-                        color: "#2196F3",
-                        width: "2rem",
-                        height: "2rem",
-                        marginRight: "0.1rem",
-                        cursor: " pointer",
-                      }}
-                    />
+                    <RefreshIcon className="refresh-icon" />
                   </button>
                   <span
                     style={{
