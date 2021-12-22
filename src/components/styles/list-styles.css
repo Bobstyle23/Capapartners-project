@@ -146,21 +146,21 @@
   }
 
   .dropdown2 {
-    width: 12.1%;
+    width: 16%;
   }
   .col-refresh {
-    margin-left: -13.1rem;
+    margin-left: -1.5rem;
   }
 }
 
 @media (max-width: 600px) {
   .dropdown1 {
     margin-right: 4.5rem;
-    width: 80%;
+    /* width: 80%; */
   }
   .dropdown2 {
     margin-left: 3.5rem;
-    width: 36%;
+    width: 23%;
   }
   .col3 {
     display: flex;
