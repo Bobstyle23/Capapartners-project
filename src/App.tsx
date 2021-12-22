@@ -17,6 +17,8 @@ import RefreshIcon from "@material-ui/icons/Refresh";
 import "./components/styles/list-styles.css";
 import Switch from "react-switch";
 import EmptyList from "./components/EmptyList";
+import SortByMilling from "./components/SortByMilling";
+import SortByShelf from "./components/SortByShelf";
 
 function App() {
   const [check, setCheck] = useState(false);
@@ -168,87 +170,9 @@ function App() {
     } else if (check && st.length !== 0) {
       return <ConsultationCard />;
     } else if (checkMethodM && methodM.length !== 0) {
-      return methodM.map((mm) => (
-        <Card className="card" key={mm.id}>
-          <Card.Body>
-            <Card.Title className="card-title">{mm.title}</Card.Title>
-            {mm.status === "상담중" ? (
-              <span>
-                <Badge className="badge-style" pill bg="light">
-                  상담중
-                </Badge>
-              </span>
-            ) : (
-              ""
-            )}
-            <h5 className="client-style">{mm.client}</h5>
-            <Card.Subtitle className="mb-2 text-muted card-subtitle">
-              {mm.due}까지 납기
-            </Card.Subtitle>
-            <hr />
-
-            <Card.Text className="cardText">
-              도면개수
-              <span className="body-span">{mm.count || mm.docs}개</span>
-            </Card.Text>
-            <Card.Text>
-              총 수량
-              <span className="body-span">{mm.amount}개</span>
-            </Card.Text>
-            <Card.Text>
-              가공방식
-              <span className="body-span">{mm.method.join(", ")}</span>
-            </Card.Text>
-            <Card.Text>
-              재료
-              <span className="body-span">{mm.material.join(", ")}</span>
-            </Card.Text>
-            <Button className="cardBtn1">요청 내역 보기</Button>
-            <Button className="cardBtn2">채팅하기</Button>
-          </Card.Body>
-        </Card>
-      ));
+      return <SortByMilling />;
     } else if (checkMethodS && methodS.length !== 0) {
-      return methodS.map((ms) => (
-        <Card className="card" key={ms.id}>
-          <Card.Body>
-            <Card.Title className="card-title">{ms.title}</Card.Title>
-            {ms.status === "상담중" ? (
-              <span>
-                <Badge className="badge-style" pill bg="light">
-                  상담중
-                </Badge>
-              </span>
-            ) : (
-              ""
-            )}
-            <h5 className="client-style">{ms.client}</h5>
-            <Card.Subtitle className="mb-2 text-muted card-subtitle">
-              {ms.due}까지 납기
-            </Card.Subtitle>
-            <hr />
-
-            <Card.Text className="cardText">
-              도면개수
-              <span className="body-span">{ms.count || ms.docs}개</span>
-            </Card.Text>
-            <Card.Text>
-              총 수량
-              <span className="body-span">{ms.amount}개</span>
-            </Card.Text>
-            <Card.Text>
-              가공방식
-              <span className="body-span">{ms.method.join(", ")}</span>
-            </Card.Text>
-            <Card.Text>
-              재료
-              <span className="body-span">{ms.material.join(", ")}</span>
-            </Card.Text>
-            <Button className="cardBtn1">요청 내역 보기</Button>
-            <Button className="cardBtn2">채팅하기</Button>
-          </Card.Body>
-        </Card>
-      ));
+      return <SortByShelf />;
     } else if (checkMaterialA && materialA.length !== 0) {
       return materialA.map((ma) => (
         <Card className="card" key={ma.id}>

@@ -1,42 +1,25 @@
 import React from "react";
-import data from "../data.json";
 import { Card, Badge, Button } from "react-bootstrap";
-
-// interface Data {
-//   id: number;
-//   title: string;
-//   client: string;
-//   due: string;
-//   count: number;
-//   amount: number;
-//   method: string[];
-//   material: string[];
-//   status: string;
-//   docs?: number;
-// }
-// interface Props {
-//   handleChange: (check: any) => void;
-//   check: boolean;
-//   // data: Data[];
-// }
+import data from "../data.json";
 
 const items = data.requests;
-const status = items.filter((st) => st.status === "상담중");
-const ConsultationCard = () => {
+const shelf = items.filter((s) => s.method.includes("선반"));
+const SortByShelf = () => {
   const cardData = () => {
-    return status.map((item) => (
+    return shelf.map((item) => (
       <Card className="card" key={item.id}>
         <Card.Body>
           <Card.Title className="card-title">{item.title}</Card.Title>
-
-          <span>
-            <Badge className="badge-style" pill bg="light">
-              상담중
-            </Badge>
-          </span>
-
+          {item.status === "상담중" ? (
+            <span>
+              <Badge className="badge-style" pill bg="light">
+                상담중
+              </Badge>
+            </span>
+          ) : (
+            ""
+          )}
           <h5 className="client-style">{item.client}</h5>
-
           <Card.Subtitle className="mb-2 text-muted card-subtitle">
             {item.due}까지 납기
           </Card.Subtitle>
@@ -67,4 +50,4 @@ const ConsultationCard = () => {
   return <>{cardData()}</>;
 };
 
-export default ConsultationCard;
+export default SortByShelf;
