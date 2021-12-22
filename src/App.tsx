@@ -19,6 +19,11 @@ import Switch from "react-switch";
 import EmptyList from "./components/EmptyList";
 import SortByMilling from "./components/SortByMilling";
 import SortByShelf from "./components/SortByShelf";
+import SortByAliminium from "./components/SortByAliminium";
+import SortByCarbonSteel from "./components/SortByCarbonSteel";
+import SortBySteel from "./components/SortBySteel";
+import SortByCopper from "./components/SortByCopper";
+import SortByStainlessSteel from "./components/SortByStainlessSteel";
 
 function App() {
   const [check, setCheck] = useState(false);
@@ -174,215 +179,19 @@ function App() {
     } else if (checkMethodS && methodS.length !== 0) {
       return <SortByShelf />;
     } else if (checkMaterialA && materialA.length !== 0) {
-      return materialA.map((ma) => (
-        <Card className="card" key={ma.id}>
-          <Card.Body>
-            <Card.Title className="card-title">{ma.title}</Card.Title>
-            {ma.status === "상담중" ? (
-              <span>
-                <Badge className="badge-style" pill bg="light">
-                  상담중
-                </Badge>
-              </span>
-            ) : (
-              ""
-            )}
-            <h5 className="client-style">{ma.client}</h5>
-            <Card.Subtitle className="mb-2 text-muted card-subtitle">
-              {ma.due}까지 납기
-            </Card.Subtitle>
-            <hr />
-
-            <Card.Text className="cardText">
-              도면개수
-              <span className="body-span">{ma.count || ma.docs}개</span>
-            </Card.Text>
-            <Card.Text>
-              총 수량
-              <span className="body-span">{ma.amount}개</span>
-            </Card.Text>
-            <Card.Text>
-              가공방식
-              <span className="body-span">{ma.method.join(", ")}</span>
-            </Card.Text>
-            <Card.Text>
-              재료
-              <span className="body-span">{ma.material.join(", ")}</span>
-            </Card.Text>
-            <Button className="cardBtn1">요청 내역 보기</Button>
-            <Button className="cardBtn2">채팅하기</Button>
-          </Card.Body>
-        </Card>
-      ));
+      return <SortByAliminium />;
     } else if (checkMaterialT && materialT.length !== 0) {
-      return materialT.map((mt) => (
-        <Card className="card" key={mt.id}>
-          <Card.Body>
-            <Card.Title className="card-title">{mt.title}</Card.Title>
-            {mt.status === "상담중" ? (
-              <span>
-                <Badge className="badge-style" pill bg="light">
-                  상담중
-                </Badge>
-              </span>
-            ) : (
-              ""
-            )}
-            <h5 className="client-style">{mt.client}</h5>
-            <Card.Subtitle className="mb-2 text-muted card-subtitle">
-              {mt.due}까지 납기
-            </Card.Subtitle>
-            <hr />
-
-            <Card.Text className="cardText">
-              도면개수
-              <span className="body-span">{mt.count || mt.docs}개</span>
-            </Card.Text>
-            <Card.Text>
-              총 수량
-              <span className="body-span">{mt.amount}개</span>
-            </Card.Text>
-            <Card.Text>
-              가공방식
-              <span className="body-span">{mt.method.join(", ")}</span>
-            </Card.Text>
-            <Card.Text>
-              재료
-              <span className="body-span">{mt.material.join(", ")}</span>
-            </Card.Text>
-            <Button className="cardBtn1">요청 내역 보기</Button>
-            <Button className="cardBtn2">채팅하기</Button>
-          </Card.Body>
-        </Card>
-      ));
+      return <SortByCarbonSteel />;
     } else if (checkMaterialK && materialK.length !== 0) {
-      return materialK.map((mk) => (
-        <Card className="card" key={mk.id}>
-          <Card.Body>
-            <Card.Title className="card-title">{mk.title}</Card.Title>
-            {mk.status === "상담중" ? (
-              <span>
-                <Badge className="badge-style" pill bg="light">
-                  상담중
-                </Badge>
-              </span>
-            ) : (
-              ""
-            )}
-            <h5 className="client-style">{mk.client}</h5>
-            <Card.Subtitle className="mb-2 text-muted card-subtitle">
-              {mk.due}까지 납기
-            </Card.Subtitle>
-            <hr />
-
-            <Card.Text className="cardText">
-              도면개수
-              <span className="body-span">{mk.count || mk.docs}개</span>
-            </Card.Text>
-            <Card.Text>
-              총 수량
-              <span className="body-span">{mk.amount}개</span>
-            </Card.Text>
-            <Card.Text>
-              가공방식
-              <span className="body-span">{mk.method.join(", ")}</span>
-            </Card.Text>
-            <Card.Text>
-              재료
-              <span className="body-span">{mk.material.join(", ")}</span>
-            </Card.Text>
-            <Button className="cardBtn1">요청 내역 보기</Button>
-            <Button className="cardBtn2">채팅하기</Button>
-          </Card.Body>
-        </Card>
-      ));
+      return <SortBySteel />;
     } else if (checkMaterialG && materialG.length !== 0) {
-      return materialG.map((mg) => (
-        <Card className="card" key={mg.id}>
-          <Card.Body>
-            <Card.Title className="card-title">{mg.title}</Card.Title>
-            {mg.status === "상담중" ? (
-              <span>
-                <Badge className="badge-style" pill bg="light">
-                  상담중
-                </Badge>
-              </span>
-            ) : (
-              ""
-            )}
-            <h5 className="client-style">{mg.client}</h5>
-            <Card.Subtitle className="mb-2 text-muted card-subtitle">
-              {mg.due}까지 납기
-            </Card.Subtitle>
-            <hr />
-
-            <Card.Text className="cardText">
-              도면개수
-              <span className="body-span">{mg.count || mg.docs}개</span>
-            </Card.Text>
-            <Card.Text>
-              총 수량
-              <span className="body-span">{mg.amount}개</span>
-            </Card.Text>
-            <Card.Text>
-              가공방식
-              <span className="body-span">{mg.method.join(", ")}</span>
-            </Card.Text>
-            <Card.Text>
-              재료
-              <span className="body-span">{mg.material.join(", ")}</span>
-            </Card.Text>
-            <Button className="cardBtn1">요청 내역 보기</Button>
-            <Button className="cardBtn2">채팅하기</Button>
-          </Card.Body>
-        </Card>
-      ));
+      return <SortByCopper />;
     } else if (checkMaterialS && materialS.length !== 0) {
-      return materialS.map((ms) => (
-        <Card className="card" key={ms.id}>
-          <Card.Body>
-            <Card.Title className="card-title">{ms.title}</Card.Title>
-            {ms.status === "상담중" ? (
-              <span>
-                <Badge className="badge-style" pill bg="light">
-                  상담중
-                </Badge>
-              </span>
-            ) : (
-              ""
-            )}
-            <h5 className="client-style">{ms.client}</h5>
-            <Card.Subtitle className="mb-2 text-muted card-subtitle">
-              {ms.due}까지 납기
-            </Card.Subtitle>
-            <hr />
-
-            <Card.Text className="cardText">
-              도면개수
-              <span className="body-span">{ms.count || ms.docs}개</span>
-            </Card.Text>
-            <Card.Text>
-              총 수량
-              <span className="body-span">{ms.amount}개</span>
-            </Card.Text>
-            <Card.Text>
-              가공방식
-              <span className="body-span">{ms.method.join(", ")}</span>
-            </Card.Text>
-            <Card.Text>
-              재료
-              <span className="body-span">{ms.material.join(", ")}</span>
-            </Card.Text>
-            <Button className="cardBtn1">요청 내역 보기</Button>
-            <Button className="cardBtn2">채팅하기</Button>
-          </Card.Body>
-        </Card>
-      ));
+      return <SortByStainlessSteel />;
     } else {
       return <EmptyList />;
     }
   };
-
   return (
     <div>
       <Header />
