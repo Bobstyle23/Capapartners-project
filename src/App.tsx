@@ -54,49 +54,42 @@ function App() {
     change: boolean | ((prevState: boolean) => boolean)
   ) => {
     setCheckMethodM(change);
-    console.log(change);
   };
 
   const handleMethodSChange = (
     change: boolean | ((prevState: boolean) => boolean)
   ) => {
     setCheckMethodS(change);
-    console.log(change);
   };
 
   const handleMaterialAChange = (
     change: boolean | ((prevState: boolean) => boolean)
   ) => {
     setCheckMaterialA(change);
-    console.log(change);
   };
 
   const handleMaterialTChange = (
     change: boolean | ((prevState: boolean) => boolean)
   ) => {
     setCheckMaterialT(change);
-    console.log(change);
   };
 
   const handleMaterialKChange = (
     change: boolean | ((prevState: boolean) => boolean)
   ) => {
     setCheckMaterialK(change);
-    console.log(change);
   };
 
   const handleMaterialGChange = (
     change: boolean | ((prevState: boolean) => boolean)
   ) => {
     setCheckMaterialG(change);
-    console.log(change);
   };
 
   const handleMaterialSChange = (
     change: boolean | ((prevState: boolean) => boolean)
   ) => {
     setCheckMaterialS(change);
-    console.log(change);
   };
   const resetHandler = () => {
     window.location.reload();
