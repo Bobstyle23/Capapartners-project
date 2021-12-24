@@ -1,10 +1,24 @@
 import React from "react";
 import { Card, Badge, Button } from "react-bootstrap";
-import data from "../data.json";
 
-const items = data.requests;
-const shelf = items.filter((s) => s.method.includes("선반"));
-const SortByShelf = () => {
+interface Data {
+  id: number;
+  title: string;
+  client: string;
+  due: string;
+  count?: number;
+  amount: number;
+  method: string[];
+  material: string[];
+  status: string;
+  docs?: number;
+}
+
+interface Props {
+  shelf: Data[];
+}
+
+const SortByShelf: React.FC<Props> = ({ shelf }) => {
   const cardData = () => {
     return shelf.map((item) => (
       <Card className="card" key={item.id}>

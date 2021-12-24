@@ -1,10 +1,24 @@
 import React from "react";
-import data from "../data.json";
 import { Card, Button, Badge } from "react-bootstrap";
 
-const items = data.requests;
-const aliminium = items.filter((a) => a.material.includes("알루미늄"));
-const SortByAliminium = () => {
+interface Data {
+  id: number;
+  title: string;
+  client: string;
+  due: string;
+  count?: number;
+  amount: number;
+  method: string[];
+  material: string[];
+  status: string;
+  docs?: number;
+}
+
+interface Props {
+  aliminium: Data[];
+}
+
+const SortByAliminium: React.FC<Props> = ({ aliminium }) => {
   const cardData = () => {
     return aliminium.map((item) => (
       <Card className="card" key={item.id}>

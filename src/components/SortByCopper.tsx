@@ -1,11 +1,22 @@
 import React from "react";
-import data from "../data.json";
 import { Card, Button, Badge } from "react-bootstrap";
 
-const items = data.requests;
-const copper = items.filter((g) => g.material.includes("구리"));
-
-const SortByCopper = () => {
+interface Data {
+  id: number;
+  title: string;
+  client: string;
+  due: string;
+  count?: number;
+  amount: number;
+  method: string[];
+  material: string[];
+  status: string;
+  docs?: number;
+}
+interface Props {
+  copper: Data[];
+}
+const SortByCopper: React.FC<Props> = ({ copper }) => {
   const cardData = () => {
     return copper.map((item) => (
       <Card className="card" key={item.id}>

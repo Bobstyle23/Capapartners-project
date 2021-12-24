@@ -166,21 +166,21 @@ function App() {
         </Card>
       ));
     } else if (check && st.length !== 0) {
-      return <ConsultationCard />;
+      return <ConsultationCard status={st} />;
     } else if (checkMethodM && methodM.length !== 0) {
-      return <SortByMilling />;
+      return <SortByMilling milling={methodM} />;
     } else if (checkMethodS && methodS.length !== 0) {
-      return <SortByShelf />;
+      return <SortByShelf shelf={methodS} />;
     } else if (checkMaterialA && materialA.length !== 0) {
-      return <SortByAliminium />;
+      return <SortByAliminium aliminium={materialA} />;
     } else if (checkMaterialT && materialT.length !== 0) {
-      return <SortByCarbonSteel />;
+      return <SortByCarbonSteel carbon={materialT} />;
     } else if (checkMaterialK && materialK.length !== 0) {
-      return <SortBySteel />;
+      return <SortBySteel steel={materialK} />;
     } else if (checkMaterialG && materialG.length !== 0) {
-      return <SortByCopper />;
+      return <SortByCopper copper={materialG} />;
     } else if (checkMaterialS && materialS.length !== 0) {
-      return <SortByStainlessSteel />;
+      return <SortByStainlessSteel stainlessSteel={materialS} />;
     } else {
       return <EmptyList />;
     }

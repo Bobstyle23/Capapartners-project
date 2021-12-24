@@ -1,11 +1,24 @@
 import React from "react";
-import data from "../data.json";
 import { Card, Badge, Button } from "react-bootstrap";
 
-const items = data.requests;
-const milling = items.filter((m) => m.method.includes("밀링"));
+interface Data {
+  id: number;
+  title: string;
+  client: string;
+  due: string;
+  count?: number;
+  amount: number;
+  method: string[];
+  material: string[];
+  status: string;
+  docs?: number;
+}
 
-const SortByMilling = () => {
+interface Props {
+  milling: Data[];
+}
+
+const SortByMilling: React.FC<Props> = ({ milling }) => {
   const cardData = () => {
     return milling.map((item) => (
       <Card className="card" key={item.id}>

@@ -1,26 +1,23 @@
 import React from "react";
-import data from "../data.json";
 import { Card, Badge, Button } from "react-bootstrap";
 
-// interface Data {
-//   id: number;
-//   title: string;
-//   client: string;
-//   due: string;
-//   count: number;
-//   amount: number;
-//   method: string[];
-//   material: string[];
-//   status: string;
-//   docs?: number | undefined;
-// }
-// interface Props {
-//   items: Data[];
-// }
+interface Data {
+  id: number;
+  title: string;
+  client: string;
+  due: string;
+  count?: number;
+  amount: number;
+  method: string[];
+  material: string[];
+  status: string;
+  docs?: number;
+}
+interface Props {
+  status: Data[];
+}
 
-const items = data.requests;
-const status = items.filter((st) => st.status === "상담중");
-const ConsultationCard = () => {
+const ConsultationCard: React.FC<Props> = ({ status }) => {
   const cardData = () => {
     return status.map((item) => (
       <Card className="card" key={item.id}>

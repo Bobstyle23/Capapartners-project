@@ -1,11 +1,24 @@
 import React from "react";
-import data from "../data.json";
 import { Card, Button, Badge } from "react-bootstrap";
 
-const items = data.requests;
-const stainlessSteel = items.filter((s) => s.material.includes("스테인리스강"));
+interface Data {
+  id: number;
+  title: string;
+  client: string;
+  due: string;
+  count?: number;
+  amount: number;
+  method: string[];
+  material: string[];
+  status: string;
+  docs?: number;
+}
 
-const SortByStainlessSteel = () => {
+interface Props {
+  stainlessSteel: Data[];
+}
+
+const SortByStainlessSteel: React.FC<Props> = ({ stainlessSteel }) => {
   const cardData = () => {
     return stainlessSteel.map((item) => (
       <Card className="card" key={item.id}>
